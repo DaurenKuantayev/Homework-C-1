@@ -9,18 +9,22 @@ void DataEntry(string str)
 {
     Console.Write(str);
     int number = int.Parse(Console.ReadLine());
-    int FirstPartNumb = number / 100 ;
-    int SecondPartNumb = number % 1000;
-    if (FirstPartNumb == SecondPartNumb)
+    int Reverse = 0;
+    int numberData = number;
+    while (number > 0)
     {
-        Console.Write($"{number} -> да");
+        int remainder = number % 10;
+        Reverse = (Reverse * 10) + remainder;
+        number = number / 10;
+    }
+    if (numberData == Reverse)
+    {
+        Console.WriteLine($"{numberData}-> да");
     }
     else
     {
-        Console.Write($"{number} -> нет");
-        Console.Write($"{FirstPartNumb} {SecondPartNumb}");
+        Console.WriteLine($"{numberData}-> нет");
     }
-    Console.WriteLine();
-}
 
+}
 DataEntry("Введите пятизначное число: ");
